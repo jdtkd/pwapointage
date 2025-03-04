@@ -1,0 +1,62 @@
+---
+description: regles de pointage evite doublons
+globs: 
+alwaysApply: false
+---
+Voici une règle pour éviter les doublons lors du pointage d'un utilisateur dans l'historique de pointage :
+
+### Règle pour Éviter les Doublons
+
+1. **Vérification de l'Existence d'un Pointage Récemment Enregistré** :
+   - Avant d'enregistrer un nouveau pointage, vérifiez si un pointage similaire (arrivée ou départ) a été effectué dans un laps de temps défini (par exemple, 5 minutes).
+   - Si un pointage similaire existe dans cette plage de temps, le nouveau pointage est refusé pour éviter les doublons.
+
+2. **Type de Pointage** :
+   - **Arrivée** : Un utilisateur ne peut pas pointer son arrivée si un pointage d'arrivée est déjà enregistré pour la même journée sans un pointage de départ correspondant.
+   - **Départ** : Un utilisateur ne peut pas pointer son départ si un pointage de départ est déjà enregistré pour la même journée sans un pointage d'arrivée correspondant.
+
+3. **Gestion des Exceptions** :
+   - Si un doublon est détecté, l'utilisateur reçoit une notification pour confirmer ou annuler le pointage.
+   - Un administrateur peut également intervenir pour corriger manuellement les erreurs de pointage.
+
+4. **Historique des Pointages** :
+   - Conserver un historique complet des pointages, y compris les tentatives refusées, pour faciliter la traçabilité et la gestion des exceptions.
+
+### Exemple de Code (JavaScript)
+
+```javascript
+function verifierDoublon(typePointage, heurePointage, historiquePointages) {
+    const tempsEcoule = 5 * 60 * 1000; // 5 minutes en millisecondes
+    const dernierPointage = historiquePointages[historiquePointages.length - 1];
+
+    if (dernierPointage && dernierPointage.type === typePointage) {
+        const tempsDepuisDernierPointage = heurePointage.getTime() - dernierPointage.heure.getTime();
+        if (tempsDepuisDernierPointage < tempsEcoule) {
+            return "Doublon détecté. Veuillez vérifier votre pointage.";
+        }
+    }
+
+    // Vérification du type de pointage
+    if (typePointage === "arrivée" && dernierPointage && dernierPointage.type === "arrivée") {
+        return "Un pointage d'arrivée est déjà enregistré pour aujourd'hui.";
+    } else if (typePointage === "départ" && (!dernierPointage || dernierPointage.type !== "arrivée")) {
+        return "Aucun pointage d'arrivée n'a été enregistré pour aujourd'hui.";
+    }
+
+    return "Pointage enregistré avec succès.";
+}
+
+// Exemple d'utilisation
+const heurePointage = new Date();
+const historiquePointages = [
+    { type: "arrivée", heure: new Date('2023-01-01T09:00:00.000Z') },
+    // ...
+];
+
+console.log(verifierDoublon("arrivée", heurePointage, historiquePointages));
+```
+
+Cette règle aide à prévenir les doublons et à maintenir la cohérence des données dans l'historique de pointage.
+
+---
+Réponse de Perplexity: pplx.ai/share

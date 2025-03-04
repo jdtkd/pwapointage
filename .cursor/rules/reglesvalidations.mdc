@@ -1,0 +1,23 @@
+---
+description: regles de validations de pointage et de notifications 
+globs: 
+alwaysApply: false
+---
+Règles de Validation
+Pointage d'arrivée :
+
+Si l'heure d'arrivée est avant 8h25, le pointage est refusé.
+
+Si l'heure d'arrivée est après 20h30, le pointage est refusé.
+
+Pointage de départ :
+
+Si l'heure de départ est avant 8 heures de travail effectuées, le pointage est accepté .
+
+Si l'heure de départ est après 20h30, le pointage est refusé.
+
+Durée de travail :
+
+Si la durée de travail dépasse 8 heures, les heures supplémentaires sont enregistrées.
+
+Si la durée de travail est inférieure à 8 heures, une alerte est envoyée pour signaler une sortie anticipée.

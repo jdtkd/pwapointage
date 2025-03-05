@@ -1,0 +1,36 @@
+---
+description: guidelineprisma&supabase
+globs: 
+alwaysApply: true
+---
+---
+description: Next.js with Supabase Development Rules
+globs: *.js, *.ts
+---
+
+# Framework Standards
+
+- **Next.js**: Utiliser TypeScript pour la sécurité des types.
+- **Supabase**: Utiliser le SDK Supabase pour les requêtes de données.
+- **Authentification**: Intégrer l'authentification Supabase avec @supabase/ssr.
+
+# Quality Controls
+
+- **ESLint**: Suivre les directives ESLint pour la qualité du code.
+- **Tests**: Assurer une couverture minimale des tests unitaires et d'intégration.
+- **Security**: Éviter les requêtes SQL directes dans les vues.
+
+# Supabase Query Rules
+
+- **Data Fetching**: Utiliser `supabase.from('table_name').select('*')` pour récupérer les données.
+- **Error Handling**: Gérer les erreurs avec des blocs try-catch.
+
+# Next.js Page Generation Rules
+
+- **Server-Side Rendering (SSR)**: Utiliser `getServerSideProps` pour les pages SSR.
+- **Routing**: Utiliser le composant `Link` de Next.js pour la navigation.
+
+# Best Practices
+
+- **Code Organization**: Organiser le code en modules logiques.
+- **Documentation**: Documenter les fonctions et composants clés.

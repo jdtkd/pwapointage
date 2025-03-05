@@ -1,0 +1,56 @@
+---
+description: pointagesrules
+globs: 
+alwaysApply: true
+---
+Pour implémenter un dashboard qui interagit avec un historique de pointage et affiche des données de manière logique, voici quelques principes de logique d'affichage et de calcul :
+
+## Principes de Logique d'Affichage
+
+1. **Organisation Logique des Données** :
+   - **Regrouper les Indicateurs Connexes** : Organisez les données en sections logiques, par exemple, les pointages d'arrivée et de départ dans une section, et les statistiques de ponctualité dans une autre.
+   - **Utiliser des Visuels** : Intégrez des graphiques, des diagrammes et des jauges pour présenter des données complexes de manière intuitive[1][2].
+
+2. **Mise à Jour en Temps Réel** :
+   - Assurez que les données sont mises à jour en temps réel pour refléter les changements dans l'historique de pointage[3][7].
+
+3. **Interaction Utilisateur** :
+   - **Filtres et Recherches** : Permettez aux utilisateurs de filtrer les données par date, par employé, ou par type de pointage pour affiner leur analyse.
+   - **Onglets ou Menus Déroulants** : Utilisez ces éléments pour offrir des aperçus plus détaillés sans surcharger l'interface principale[1][2].
+
+## Principes de Calcul
+
+1. **Calcul de la Ponctualité** :
+   - Développez une logique pour calculer la ponctualité en fonction des heures d'arrivée et de départ, en tenant compte des seuils de tolérance (par exemple, 5 minutes)[3].
+
+2. **Statistiques Globales** :
+   - Calculez des statistiques globales comme le taux de ponctualité moyen, le nombre d'arrivées en retard, ou le nombre de départs anticipés[2].
+
+3. **Alertes et Notifications** :
+   - Mettez en place un système d'alertes pour informer les gestionnaires des anomalies ou des seuils dépassés (par exemple, un employé en retard plusieurs fois par semaine)[3].
+
+## Interaction entre l'Histoire de Pointage et le Dashboard
+
+1. **API pour Récupérer les Données** :
+   - Créez une API qui récupère les données de l'historique de pointage pour les afficher sur le dashboard[7].
+
+2. **Mise à Jour Automatique** :
+   - Utilisez des requêtes régulières pour mettre à jour les données sur le dashboard en fonction des nouveaux pointages enregistrés[3].
+
+3. **Intégration avec d'Autres Outils** :
+   - Intégrez le dashboard avec d'autres outils de gestion pour offrir une vue complète des performances et des données de l'entreprise[5][6].
+
+En suivant ces principes, vous pouvez créer un dashboard interactif qui offre une vue claire et organisée de l'historique de pointage, facilitant ainsi l'analyse et la prise de décision.
+
+Citations:
+[1] https://clickup.com/fr-FR/blog/241177/tableau-de-bord-du-client
+[2] https://fr.dashthis.com/blog/scorecard-dashboards/
+[3] https://blog.atinternet.com/fr/les-9-secrets-dun-tableau-de-bord-efficace/
+[4] https://docs.dhis2.org/archive/fr/2.35/user/dhis2-user-manual.pdf
+[5] https://doc.arcgis.com/fr/dashboards/10.9.1/reference/pdf/dashboards_classic_portal.pdf
+[6] https://help.sap.com/doc/businessobject_product_guides_sbo42_fr_sbo42_dashd_user_fr_pdf/4.2/fr-FR/sbo42_dashd_user_fr.pdf
+[7] https://docs.datadoghq.com/fr/dashboards/
+[8] https://www.questionpro.com/fr/help/dynamic-show-hide.html
+
+---
+Réponse de Perplexity: pplx.ai/share

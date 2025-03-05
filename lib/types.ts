@@ -1,10 +1,23 @@
 export interface Pointage {
   id: string;
+  userId: string;
   type: 'arrivee' | 'depart';
-  date: Date | string;
+  date: string;
   retard?: boolean;
   retardMinutes?: number;
+  sortieAnticipee?: boolean;
   heuresSupplementaires?: number;
+}
+
+export interface User {
+  id: string;
+  nom: string;
+  prenom: string;
+  email: string;
+}
+
+export interface PointageWithUser extends Pointage {
+  user: User;
 }
 
 export interface PointageJournalier {
